@@ -8,7 +8,7 @@
     <description></description>
     <display-name>StartupServlet</display-name>
     <servlet-name>StartupServlet</servlet-name>
-    <servlet-class>org.sum.rut.servlet.StartupServlet</servlet-class>
+    <servlet-class>com.sum.rut.servlet.StartupServlet</servlet-class>
     <init-param>
       <param-name>boot-config.xml</param-name>
       <param-value>boot-config.xml</param-value>
@@ -28,7 +28,7 @@
     <description></description>
     <display-name>AccessServlet</display-name>
     <servlet-name>AccessServlet</servlet-name>
-    <servlet-class>org.sum.rut.servlet.AccessServlet</servlet-class>
+    <servlet-class>com.sum.rut.servlet.AccessServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AccessServlet</servlet-name>

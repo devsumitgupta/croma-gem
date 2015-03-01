@@ -1,4 +1,4 @@
-package org.sum.rut.servlet;
+package com.sum.rut.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import com.sum.rut.utils.FileReadUtils;
 
 /**
@@ -18,6 +21,7 @@ import com.sum.rut.utils.FileReadUtils;
 public class StartupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public Properties configProps = null;
+	Logger startupDebugLog = LogManager.getLogger("debug");//StartupServlet.class);
 
     /**
      * Default constructor. 
@@ -43,12 +47,16 @@ public class StartupServlet extends HttpServlet {
 	 */
 	public void init(ServletConfig sc) {
 //		String xml sc.getInitParameter();
+		
 		String config = sc.getInitParameter("config");
+		startupDebugLog.error("Going to load data.");
 		loadConfigData(config);
+		startupDebugLog.error("Done loading data.");
 	}
 
 	private void loadConfigData(String configfile) {
 		System.out.println("Loading Config File ");
+		startupDebugLog.error("Done loading data.");
 		if(FileReadUtils.doesFileExist(configfile)) {
 			System.out.println("File Exist");
 			configProps = FileReadUtils.readProperty(configfile);
