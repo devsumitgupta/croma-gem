@@ -1,6 +1,8 @@
 package com.sum.rut.servlet;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -33,6 +35,7 @@ public class AccessServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Only Post Allowed");
 		debug.debug("Welcome to the world");
 		PrintWriter pw = response.getWriter();
 		pw.write("Hello World");
@@ -44,6 +47,9 @@ public class AccessServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		if("xml".equalsIgnoreCase(request.getContentType().toString()))
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+		BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
 	}
 
 }

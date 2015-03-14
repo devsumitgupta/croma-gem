@@ -7,11 +7,9 @@
 <title>Chroma Gem</title>
 </head>
 <body>
+Here i go 
+<!-- response.sendRedirect("/AccessServlet"); -->
 
-<%-- <%
-response.sendRedirect("/StartupServlet");
-
-%> --%>
 
 </body>
 </html>
